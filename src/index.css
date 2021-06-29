@@ -1,13 +1,393 @@
+@font-face {
+  font-family: 'GTWalsheimPro-Black';
+  src: url('./fonts/GTWalsheimPro/GTWalsheimPro-Black.ttf') format('truetype')
+}
+@font-face {
+  font-family: 'GTWalsheimPro-Bold';
+  src: url('./fonts/GTWalsheimPro/GTWalsheimPro-Bold.ttf') format('truetype')
+}
+@font-face {
+  font-family: 'GTWalsheimPro-CondensedBold';
+  src: url('./fonts/GTWalsheimPro/GTWalsheimPro-CondensedBold.ttf') format('truetype')
+}
+@font-face {
+  font-family: 'GTWalsheimPro-CondensedLight';
+  src: url('./fonts/GTWalsheimPro/GTWalsheimPro-CondensedLight.ttf') format('truetype')
+}
+@font-face {
+  font-family: 'GTWalsheimPro-CondensedMedium';
+  src: url('./fonts/GTWalsheimPro/GTWalsheimPro-CondensedMedium.ttf') format('truetype')
+}
+@font-face {
+  font-family: 'GTWalsheimPro-CondensedRegular';
+  src: url('./fonts/GTWalsheimPro/GTWalsheimPro-CondensedRegular.ttf') format('truetype')
+}
+@font-face {
+  font-family: 'GTWalsheimPro-Light';
+  src: url('./fonts/GTWalsheimPro/GTWalsheimPro-Light.ttf') format('truetype')
+}
+@font-face {
+  font-family: 'GTWalsheimPro-Medium';
+  src: url('./fonts/GTWalsheimPro/GTWalsheimPro-Medium.ttf') format('truetype')
+}
+@font-face {
+  font-family: 'GTWalsheimPro-Regular';
+  src: url('./fonts/GTWalsheimPro/GTWalsheimPro-Regular.ttf') format('truetype')
+}
+@font-face {
+  font-family: 'GTWalsheimPro-UltraLight';
+  src: url('./fonts/GTWalsheimPro/GTWalsheimPro-UltraLight.ttf') format('truetype')
+}
+:root{
+  --red: #E74C3C;
+  --light-gray: #34495E;
+  --gray:#2C3E50;
+  --dark-gray:#1A2530;
+}
 body {
+  
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--gray);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+button {
+  outline: none;
+  border: none;
+  --webkit-user-select: none;
+  --moz-user-select: none;
+  --ms-user-select: none;
+  cursor: pointer;
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: transparent;
+  z-index: 3;
+}
+
+.background {
+  position: fixed;
+  top: 0px;
+  left:0px;
+  bottom: 0px;
+  width: 300px;
+  background: var(--dark-gray);
+  z-index: 3;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  z-index: 3;
+}
+
+.menu-Ul {
+  padding: 25px;
+  position: fixed ;
+  top: 100px;
+  width: 230px;
+}
+
+li {
+  list-style: none;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.icon-placeholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex: 40px 0;
+  margin-right: 20px;
+}
+
+.text-placeholder {
+  border-radius: 5px;
+  width: 200px;
+  height: 20px;
+  flex: 1;
+}
+
+.refresh {
+  padding: 10px;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  width: 20px;
+  height: 20px;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.title-section {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.navbar{
+  width: 150px;
+  top: 30px;
+  right: 30px;
+  position: absolute;
+}
+.icons{
+  transition: color 0.2s;
+}
+.icons:hover{
+  color: var(--red);
+}
+.nav-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.nav-container a{
+  color: white;
+}
+.GTW{
+  font-family: 'GTWalsheimPro-Bold', sans-serif;
+}
+.title-section h1, h3{
+  text-align: left;
+  margin-left: 5vw;
+}
+.title-section h1{
+  font-size: 5vmax;
+  border-bottom: solid 5px var(--red);
+  font-weight: 400;
+}
+.title-section h3{
+font-family: 'GTWalsheimPro-CondensedLight';
+}
+.title-container{
+  margin-top: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.title-container img {
+  width: 35vw;
+}
+
+.portfolio-section{
+  min-height: 60vh;
+  overflow: auto;
+}
+.portfolio-section h2{
+  font-family: 'GTWalsheimPro-Bold';
+  color: white;
+  margin-left: 10%;
+  margin-top: 200px;
+  font-size: 5vw;
+}
+.portfolio-section h3{
+  color: white;
+  margin-left: 24%;
+  font-size: 1.5vw;
+  font-family: 'GTWalsheimPro-Regular';
+}
+.CardPortfolio{
+  background-color: var(--light-gray);
+  height: 37rem;
+  width: 100%;
+  right: 0px;
+  border-top-left-radius: 90%;
+  position: absolute;
+  z-index: -2;
+}
+.SpacePortfolio{
+  background-color: var(--light-gray);
+  height: 80rem;
+  width: 100%;
+  right: 0px;
+  position: absolute;
+  z-index: -2;
+}
+.App-link {
+  color: #61dafb;
+}
+aside{
+  width: 10vw;
+  min-height: 100%;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--dark-gray);
+  position: fixed;
+}
+
+.sideMenu{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  min-height: 100vh;
+}
+.sideMenu li {
+  list-style-type: none;
+}
+.sideMenu span {
+  background-color: var(--dark-gray);
+  display: flex;
+  padding: 12px;
+  text-decoration: none;
+  font-family: 'GTWalsheimPro-Medium';
+  font-size: 1.2vmax 1vmin;
+  
+  color: white;
+  justify-content: center;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+.menuSpan span {
+  background-color: var(--dark-gray);
+  display: flex;
+  padding: 12px;
+  text-decoration: none;
+  font-family: 'GTWalsheimPro-Medium';
+  font-size: 1.2vmax 1vmin;
+  color: white;
+  justify-content: center;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+.big-circle{
+  background-color: var(--light-gray);
+  height: 20vw;
+  width: 20vw;
+  border-radius: 30%;
+  left: 50%;
+  margin-top: 5%;
+  z-index: -1;
+  position: absolute;
+}
+.big-circle-2{
+  background-color: rgb(147, 133, 133);
+  height: 18vw;
+  width: 18vw;
+  border-radius: 30%;
+  margin-top: 5%;
+  margin-bottom: 7%;
+  left: 63%;
+  z-index: -3;
+  position: absolute;
+}
+.sideMenu span:hover{
+  background-color: var(--light-gray);
+}
+.active{
+  background-color: var(--light-gray);
+  border-right: var(--red) 5px solid;
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media screen and (max-width: 480px) {
+  html,body{
+    overflow-x: hidden;
+  }
+  body{
+    position: relative;
+  }
+  .title-container{
+    flex-direction: column;
+
+    margin-top: 3rem;
+  }
+  .title-section h1{
+    font-size: 6.5vmax;
+  }
+  .title-section h1, h3{
+    margin-left: 0px;
+    margin-right: 6rem;
+  }
+  .title-container img {
+    width: 85%;
+    margin-left: 10%;
+  }
+  .big-circle{
+    height: 25vh;
+    width: 25vh;
+    border-radius: 30%;
+    left: 8%;
+    margin-top: 50%;
+  }
+  .big-circle-2{
+    height: 20vh;
+    width: 20vh;
+    border-radius: 30%;
+    margin-top: 35%;
+    margin-bottom: 0%;
+    left: 45%;
+  }
+ 
+  .CardPortfolio{
+    background-color: var(--light-gray);
+    height: 150%;
+    width: 180%;
+    border-top-left-radius: 70%;
+    transform: rotate(5deg);
+}
+.portfolio-section h2{
+  margin-top: 150px;
+  font-size: 3rem
+}
+.portfolio-section h3{
+  text-align: start;
+  margin-left: 15.5%;
+  font-size: 1.35rem;
+}
+@media screen and (max-width: 370px) {
+  .big-circle{
+    height: 25vh;
+    width: 25vh;
+    border-radius: 30%;
+    left: 8%;
+    margin-top: 90%;
+  }
+  .big-circle-2{
+    height: 20vh;
+    width: 20vh;
+    border-radius: 30%;
+    margin-top: 65%;
+    margin-bottom: 0%;
+    left: 45%;
+  }
+}
 }
