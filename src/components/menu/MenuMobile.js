@@ -25,13 +25,14 @@ const sidebar = {
   }
 };
 
-export const Example = ({section,setSection}) => {
+export const MenuMobile = ({section,setSection}) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
 
   return (
     <motion.nav
+    className ='buttonNav'
       initial={false}
       animate={isOpen ? "open" : "closed"}
       custom={height}

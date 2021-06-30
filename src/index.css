@@ -44,22 +44,22 @@
   --gray:#2C3E50;
   --dark-gray:#1A2530;
 }
+
 body {
-  
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--gray);
+  background: rgb(44,62,80);
+  background: linear-gradient(180deg, rgba(44,62,80,1) 27%, rgba(52,73,94,1) 35%, rgba(52,73,94,1) 99%);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
 
 button {
   outline: none;
@@ -75,7 +75,7 @@ button {
   height: 50px;
   border-radius: 50%;
   background: transparent;
-  z-index: 3;
+  z-index: 4;
 }
 
 .background {
@@ -83,23 +83,28 @@ button {
   top: 0px;
   left:0px;
   bottom: 0px;
-  width: 300px;
+  width: 170px;
   background: var(--dark-gray);
-  z-index: 3;
+  z-index: 4;
+  overflow: hidden;
 }
 
-ul,
-li {
+ nav,ul,li {
   margin: 0;
   padding: 0;
-  z-index: 3;
+  z-index: 4;
+  overflow-y: hidden;
 }
 
 .menu-Ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   padding: 25px;
-  position: fixed ;
+  position: fixed;
   top: 100px;
-  width: 230px;
+  overflow-y: hidden;
+  width: 145px;
 }
 
 li {
@@ -108,6 +113,8 @@ li {
   display: flex;
   align-items: center;
   cursor: pointer;
+  overflow-y: hidden;
+  
 }
 
 .icon-placeholder {
@@ -139,21 +146,20 @@ li {
   align-items: center;
   cursor: pointer;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
-
 .title-section {
-  min-height: 80vh;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: left;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  overflow-y: hidden;
 }
 .navbar{
   width: 150px;
@@ -202,15 +208,18 @@ font-family: 'GTWalsheimPro-CondensedLight';
 }
 
 .portfolio-section{
-  min-height: 60vh;
-  overflow: auto;
+  min-height: 100vh;
 }
-.portfolio-section h2{
+.portfolio-section h2,
+.detail-section h2,
+.contact-section h2,
+.socials-section h2{
   font-family: 'GTWalsheimPro-Bold';
   color: white;
-  margin-left: 10%;
+  margin-left: 20%;
   margin-top: 200px;
   font-size: 5vw;
+  border-bottom: 2px solid var(--red);
 }
 .portfolio-section h3{
   color: white;
@@ -220,9 +229,10 @@ font-family: 'GTWalsheimPro-CondensedLight';
 }
 .CardPortfolio{
   background-color: var(--light-gray);
-  height: 37rem;
+  height: 100%;
   width: 100%;
   right: 0px;
+  top: 600px;
   border-top-left-radius: 90%;
   position: absolute;
   z-index: -2;
@@ -239,7 +249,7 @@ font-family: 'GTWalsheimPro-CondensedLight';
   color: #61dafb;
 }
 aside{
-  width: 10vw;
+  width: 13vw;
   min-height: 100%;
   float: left;
   display: flex;
@@ -278,10 +288,11 @@ aside{
   font-family: 'GTWalsheimPro-Medium';
   font-size: 1.2vmax 1vmin;
   color: white;
-  justify-content: center;
+  justify-content: right;
   transition: background-color 0.2s;
   cursor: pointer;
 }
+
 .big-circle{
   background-color: var(--light-gray);
   height: 20vw;
@@ -306,29 +317,53 @@ aside{
 .sideMenu span:hover{
   background-color: var(--light-gray);
 }
-.active{
+.active span{
   background-color: var(--light-gray);
   border-right: var(--red) 5px solid;
 }
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.proyect{
+  background-color: white;
+  height: 200px;
+  width: 300px;
+  margin: 3%;
+  border-radius: 8px;
 }
+.proyect-container{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+  margin-left: 15%;
+
+}
+.detail-section, .contact-section{
+  min-height: 70vh;
+}
+.socials-section{
+  min-height: 90vh;
+}
+.detail-section,.contact-section,.socials-section{
+  background-color: var(--light-gray);
+  }
 @media screen and (max-width: 480px) {
-  html,body{
+  html {
     overflow-x: hidden;
   }
-  body{
+ 
+  body {
+    overflow-x: hidden;
     position: relative;
+    background: linear-gradient(to top, no-repeat,180deg, rgba(44,62,80,1) 26%, rgba(52,73,94,1) 66%, rgba(26,37,48,1) 99%);
   }
   .title-container{
     flex-direction: column;
-
     margin-top: 3rem;
+  }
+  .proyect-container{
+    margin-left: 10%;
+  }
+  .row{
+    flex-direction: column;
   }
   .title-section h1{
     font-size: 6.5vmax;
@@ -358,15 +393,23 @@ aside{
   }
  
   .CardPortfolio{
-    background-color: var(--light-gray);
-    height: 150%;
-    width: 180%;
-    border-top-left-radius: 70%;
-    transform: rotate(5deg);
+    top: 350px;
+    height: 20%;
+    width: 70%;
+    border-bottom-left-radius: 200%;
+    border-bottom-right-radius: 50%;
+    transform: rotate(90deg);
 }
-.portfolio-section h2{
+.portfolio-section{
+  overflow: hidden;
+  background: rgb(52,73,94);
+  background: linear-gradient(0deg, rgba(52,73,94,1) 56%, rgba(52,73,94,0.9192051820728291) 80%, rgba(52,73,94,0) 99%);
+}
+
+.portfolio-section h2,.detail-section h2,.socials-section h2, .contact-section h2{
+  margin-left: 15%;
   margin-top: 150px;
-  font-size: 3rem
+  font-size: 3rem;
 }
 .portfolio-section h3{
   text-align: start;
