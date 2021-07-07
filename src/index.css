@@ -93,7 +93,6 @@ button {
   margin: 0;
   padding: 0;
   z-index: 4;
-  overflow-y: hidden;
 }
 
 .menu-Ul {
@@ -113,7 +112,6 @@ li {
   display: flex;
   align-items: center;
   cursor: pointer;
-  overflow-y: hidden;
   
 }
 
@@ -206,25 +204,28 @@ font-family: 'GTWalsheimPro-CondensedLight';
 .title-container img {
   width: 35vw;
 }
+.detail-section{}
 
-.portfolio-section{
-  min-height: 100vh;
-}
 .portfolio-section h2,
 .detail-section h2,
 .contact-section h2,
-.socials-section h2{
+.socials-section h2,
+.skills-section h2{
   font-family: 'GTWalsheimPro-Bold';
   color: white;
   margin-left: 20%;
   margin-top: 200px;
-  font-size: 5vw;
+  font-size: clamp(3rem,3rem,5rem);
+
   border-bottom: 2px solid var(--red);
+}
+.detail-section h2,.socials-section h2, .contact-section h2{
+  margin-top: 50px;
 }
 .portfolio-section h3{
   color: white;
   margin-left: 24%;
-  font-size: 1.5vw;
+  font-size: clamp(1.3rem, 1.5rem,2rem);
   font-family: 'GTWalsheimPro-Regular';
 }
 .CardPortfolio{
@@ -232,7 +233,7 @@ font-family: 'GTWalsheimPro-CondensedLight';
   height: 100%;
   width: 100%;
   right: 0px;
-  top: 600px;
+  top: 700px;
   border-top-left-radius: 90%;
   position: absolute;
   z-index: -2;
@@ -256,8 +257,12 @@ aside{
   flex-direction: column;
   background-color: var(--dark-gray);
   position: fixed;
+  z-index: 100;
 }
-
+.about-info{
+  display: flex;
+  flex-direction: column;
+}
 .sideMenu{
   display: flex;
   flex-direction: column;
@@ -314,36 +319,118 @@ aside{
   z-index: -3;
   position: absolute;
 }
-.sideMenu span:hover{
+.sideMenu span:hover, .menuSpan span:hover{
   background-color: var(--light-gray);
 }
 .active span{
   background-color: var(--light-gray);
   border-right: var(--red) 5px solid;
 }
-.proyect{
-  background-color: white;
-  height: 200px;
-  width: 300px;
-  margin: 3%;
-  border-radius: 8px;
+.skills-container{
+  display: grid;
+  gap: 7rem;
+  grid-auto-rows: 18rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%,15rem),1fr));
+  margin-bottom: 15vh;
+  margin-left: 15vw;
 }
-.proyect-container{
-  position: relative;
+.projects{
+  width: 265px;
   display: flex;
   flex-direction: column;
-  margin-top: 5%;
-  margin-left: 15%;
-
+  background: var(--gray);
+  padding: 20px;
+  border-radius: 25px;
+  margin: auto;
+  color: white;
+  margin: -3%;
+  z-index: 0;
 }
-.detail-section, .contact-section{
-  min-height: 70vh;
+.proyect,.projects{
+  list-style: none;
+}
+.card-title{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.proyect{
+  background-color: var(--light-gray);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  cursor: pointer;
+}
+.project-details {
+  width: 100%;
+  height: 8px;
+  background-color: red;
+  border-radius: 10px;
+  margin-top: 12px;
+}
+.proyect:last-child {
+  margin-bottom: 0px;
+}
+.proyect-container{
+  display: grid;
+  gap: 5rem;
+  grid-auto-rows: 10rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%,15rem),1fr));
+  margin-top: 5%;
+  margin-left: 20%;
+  margin-right: 5%;
+  margin-bottom: 15%;
+}
+.skills-section{
+  min-height: 40vh;
+}
+.contact-section{
+  min-height: 50vh;
 }
 .socials-section{
   min-height: 90vh;
 }
 .detail-section,.contact-section,.socials-section{
   background-color: var(--light-gray);
+  }
+  .aboutContainer{
+    background-color: var(--gray);
+    border-radius: 12px;
+    padding: 3%;
+    margin-right: 10%;
+    margin-top: 5%;
+    margin-left: clamp(0vw, 20vw,30vw);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .aboutText{
+    margin-right: 5%;
+    font-size: clamp(1rem,5vw,1.5rem);
+    font-family: 'GTWalsheimPro-Light';
+    color: white;
+  }
+  @media screen and (max-width: 1300px) {
+    .projects{
+      margin: auto;
+    }
+    .aboutContainer{
+      margin: 0 5%;
+    }
+    .title-section {
+      margin-left: -5%;
+    }
+    .skills-container{
+    margin-left: 0vw;
+    }
+    .proyect-container{
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    }
   }
 @media screen and (max-width: 480px) {
   html {
@@ -358,9 +445,6 @@ aside{
   .title-container{
     flex-direction: column;
     margin-top: 3rem;
-  }
-  .proyect-container{
-    margin-left: 10%;
   }
   .row{
     flex-direction: column;
@@ -387,13 +471,14 @@ aside{
     height: 20vh;
     width: 20vh;
     border-radius: 30%;
-    margin-top: 35%;
+    margin-top: 0%;
+    top: 9%;
     margin-bottom: 0%;
     left: 45%;
   }
  
   .CardPortfolio{
-    top: 350px;
+    top: 10%;
     height: 20%;
     width: 70%;
     border-bottom-left-radius: 200%;
@@ -409,28 +494,14 @@ aside{
 .portfolio-section h2,.detail-section h2,.socials-section h2, .contact-section h2{
   margin-left: 15%;
   margin-top: 150px;
-  font-size: 3rem;
 }
+
 .portfolio-section h3{
   text-align: start;
-  margin-left: 15.5%;
-  font-size: 1.35rem;
+  margin-left: 10%;
+  margin-right: 10%;
 }
-@media screen and (max-width: 370px) {
-  .big-circle{
-    height: 25vh;
-    width: 25vh;
-    border-radius: 30%;
-    left: 8%;
-    margin-top: 90%;
-  }
-  .big-circle-2{
-    height: 20vh;
-    width: 20vh;
-    border-radius: 30%;
-    margin-top: 65%;
-    margin-bottom: 0%;
-    left: 45%;
-  }
+.aboutContainer{
+  flex-direction: column;
 }
 }
