@@ -55,10 +55,5 @@ export const Navigation = ({toggleOpen, isOpen
 				<Category to="contact" emote={<FaEnvelope />} text="Contacto" isOpen={isOpen} toggleOpen={toggleOpen} mobile />
 			</div>
 		</motion.li>
-		<motion.li variants={itemVariants}>
-			<div className="menuSpan">
-				<Category to="socials" text="Github" isOpen={isOpen} toggleOpen={toggleOpen} mobile />
-			</div>
-		</motion.li>
 	</motion.ul>
 )

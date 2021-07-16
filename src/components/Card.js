@@ -7,7 +7,7 @@ export function Card({content, img, title}) {
 	const toggleOpen = () => setIsOpen(!isOpen)
 
 	return (
-		<motion.li layout onClick={toggleOpen} initial={{ borderRadius: 10 }} className="proyect">
+		<motion.li layout whileHover={toggleOpen} onTap={toggleOpen} initial={{ borderRadius: 10 }} className="proyect">
 			<motion.div layout className='card-title'>
 				{img}
 				{title}
@@ -22,10 +22,9 @@ export function Content({content}) {
 			layout
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
-			exit={{ opacity: 0 }}
 		>
 			<div>
-				<p>
+				<p className='card-text'>
 					{content}
 				</p>
 				

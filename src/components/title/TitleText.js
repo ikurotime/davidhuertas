@@ -39,7 +39,7 @@ export function TitleText() {
 								}),
 							}}
 						>
-              David
+              David 
 						</SplitText>
 						<br />
 						<SplitText
