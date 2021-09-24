@@ -11,16 +11,21 @@ import { Card } from './components/Card.js'
 import Menu from './components/menu/Menu'
 import vc from './img/version_control.svg'
 import './fonts/GTWalsheimPro/GTWalsheimPro-Medium.ttf'
+import axios from 'axios'
+import Project from './components/Project.js'
 
 function App() {
+
 	const [section, setSection] = useState('home')
 	const [menu, setMenu] = useState()
+	const [success, setSuccess] = useState(false)
+	const [disabled, setDisabled] = useState(false)
 	const [formData, setFormData] = useState({
-		username: '',
+		name: '',
 		email: '',
-		message: ''
+		content: ''
 	})
-	const { username, email, message} = formData
+	const { name, email, content} = formData
 	const widthListener = () => {
 		if (window.innerWidth > 1300) {
 			setMenu(true)
@@ -35,11 +40,29 @@ function App() {
 			[e.target.name] : e.target.value
 		})
 	}
-
+	var config = {
+		params: {
+			name: name,
+			email: email,
+			content: content
+		},
+		headers: {
+			'Content-Type': 'text/plain'
+		},
+		responseType: 'text'
+	}
 	const handleSubmit = e =>{
 		e.preventDefault()
-		console.log(formData)
-		
+		setDisabled(true)
+		axios.post('http://localhost:5001/davidhuertas-f8f8e/us-central1/emailSender',{}, config)
+			.then(function (response) {
+				if (response.data === 'EMAIL_SENT') {
+					setSuccess(true)
+				}
+			})
+			.catch(function (error) {
+				console.log(error)
+			})
 	}
 	useEffect(() => {
 		widthListener()
@@ -81,9 +104,12 @@ function App() {
             PORTFOLIO
 						</motion.h2>
 
-						<h3>Aqui puedes encontrar algunos de mis proyectos, los que más me gustan, personalmente.</h3>
-						<div className="proyect-container">
-						
+						<h3>These are some of my projects, you can visit the repo and their respective web.</h3>
+						<div className="project-container">
+							<Project content='Playlist'/>
+							<Project content='Login Redux TypeScript'/>
+							<Project content='Firebase'/>
+							<Project content='Otros'/>
 						</div>
 					</section>
 					<AnimateSharedLayout>
@@ -109,7 +135,7 @@ function App() {
 									</motion.p>	
 								</motion.div>
 						
-								<motion.ul  className='projects' layout initial={{ borderRadius: 25 }}>
+								<motion.ul  className='technologies' layout initial={{ borderRadius: 25 }}>
 									<Card img={<FaReact size={45} color='#61DBFB' />} title='&nbsp;React' content='I really like React, im constantly learning better ways to achieve the results I want. This website uses React too.'/>
 									<Card img={<IoLogoJavascript color='#f0db4f' size={45} />} title='&nbsp;JavaScript'  content='Since a few of my projects are made with React, you can tell I know Javascript, Im very confortable using Express.js and Node.js'/>
 									<Card img={<DiMongodb color='#4DB33D' size={45}/>} title='&nbsp;MongoDB'  content='I used MongoDB in a some projects and it went really well, I find it quite simple but still i have a lot lo learn about it.'/>
@@ -124,15 +150,19 @@ function App() {
             CONTACTO
 							</motion.h2>
 							<motion.div layout className="contact-container">
-								<motion.form layout className="contact-form" onSubmit={handleSubmit}>
-									<label className='input-label' htmlFor="username">Nombre</label>
-									<input type="text" name="username" className='input-field' onChange={handleChange} value={username}/>
-									<label className='input-label' htmlFor="email">Email</label>
-									<input type="email" name="email" className='input-field'onChange={handleChange} value={email}/>
-									<label className='input-label' htmlFor="message">Mensaje</label>
-									<textarea name="message"  cols="35" rows="10" className='input-textarea' onChange={handleChange} value={message}></textarea>
-									<button className='submit-button' type="submit">Enviar</button>
-								</motion.form>
+								{success ? (
+									<h2>Your mail has been sent successfully</h2>
+								) : (
+									<motion.form layout className="contact-form" onSubmit={handleSubmit}>
+										<label className='input-label' htmlFor="name">Nombre</label>
+										<input type="text" name="name" className='input-field' onChange={handleChange} value={name}/>
+										<label className='input-label' htmlFor="email">Email</label>
+										<input type="email" name="email" className='input-field'onChange={handleChange} value={email}/>
+										<label className='input-label' htmlFor="content">Mensaje</label>
+										<textarea name="content"  cols="35" rows="10" className='input-textarea' onChange={handleChange} value={content}></textarea>
+										<button className='submit-button' disabled={disabled} type="submit">Enviar</button>
+									</motion.form>)}
+								
 							</motion.div>
 							
 						</section>

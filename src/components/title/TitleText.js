@@ -24,7 +24,7 @@ export function TitleText() {
 								}),
 							}}
 						>
-              Hola, soy
+              Hi, I am
 						</SplitText>
 						<br />
 						<SplitText

@@ -353,7 +353,7 @@ aside{
   margin-bottom: 15vh;
   margin-left: 15vw;
 }
-.projects{
+.technologies{
   width: -webkit-fill-available;
   display: flex;
   flex-direction: column;
@@ -364,7 +364,11 @@ aside{
   margin: -3%;
   z-index: 0;
 }
-.proyect,.projects{
+.project{
+  background-color: white;
+  border-radius: 12px;
+}
+.technologie,.technologies{
   list-style: none;
 }
 .card-title{
@@ -374,7 +378,7 @@ aside{
   font-family: 'GTWalsheimPro-Medium';
   font-size: 1.2rem;
 }
-.proyect{
+.technologie{
   background-color: var(--light-gray);
   border-radius: 10px;
   padding: 20px;
@@ -384,25 +388,18 @@ aside{
   overflow: hidden;
   cursor: pointer;
 }
-.project-details {
-  width: 100%;
-  height: 8px;
-  background-color: red;
-  border-radius: 10px;
-  margin-top: 12px;
-}
-.proyect:last-child {
+
+.technologie:last-child {
   margin-bottom: 0px;
 }
-.proyect-container{
+.project-container{
   display: grid;
   gap: 5rem;
   grid-auto-rows: 10rem;
   grid-template-columns: repeat(auto-fit, minmax(min(100%,15rem),1fr));
   margin-top: 5%;
   margin-left: 20%;
-  margin-right: 5%;
-  margin-bottom: 15%;
+  margin-right: 10%;
 }
 .skills-section{
   min-height: 40vh;
@@ -482,8 +479,12 @@ aside{
     font-family: 'GTWalsheimPro-Medium';
     font-size: 1.2rem;
   }
+  .contact-container h2{
+    margin: auto;
+    font-size: 300%;
+  }
   @media screen and (max-width: 1300px) {
-    .projects{
+    .technologies{
       margin: auto;
     }
     .aboutContainer{
@@ -495,13 +496,10 @@ aside{
     .skills-container{
     margin-left: 0vw;
     }
-    .proyect-container{
-    margin-top: 5%;
-    margin-left: 5%;
-    margin-right: 5%;
+    .project-container{
+    margin-top:5%;
+    margin-bottom:5%;
     }
-
-
     @media screen and (max-width: 800px) {
       .about-container{
         flex-direction: column;
@@ -586,5 +584,9 @@ aside{
   text-align: start;
   margin-left: 10%;
   margin-right: 10%;
+}
+.contact-container h2{
+  margin: auto;
+  font-size: 250%;
 }
 }
